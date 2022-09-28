@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Discount Page</title>
+    </head>
+    <body>
+        <!-- Part 5 -->
+        <h2>Jyothsna Chaparala computes discounts</h2>
+        <br>
+        <form action="">
+            <label for="product_amount">Enter base amount</label>
+            <input type="number" name="product_amount" id="product_amount" value="20">
+            <br>
+            <label for="discount_percent">Enter the discount percentage</label>
+            <input type="number" name="discount_percent" id="discount_percent" value="10">
+            <br>
+            <button type="button" onclick="discount()">Apply discount</button>
+        </form>
+        <br>
+        <p id="result">Your results will be displayed here</p>
+
+        <script>
+            function discount() {
+                base_value = document.getElementById("product_amount").value
+                discount_value = document.getElementById("discount_percent").value
+                result = ""
+                for(i = 1; i <= 5; i++) {
+                    result += ((i * base_value) - ((i * base_value) * (discount_value)/100))
+                    result += " "
+                }
+                document.getElementById("result").innerHTML = "Discounted amounts for base " + base_value + 
+                                                                " are " + result 
+            }
+        </script>
+    </body>
+</html>
