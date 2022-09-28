@@ -21,8 +21,23 @@
         </form>
         <br>
         <p id="result">Your results will be displayed here</p>
+        <br>
+
+        <!-- Part 6 -->
+        <form action="">
+            <input type="radio" id="multiply" name="operation" value="times" onclick="chooseOp()">
+            <label for="multiply">*</label>
+            <br>
+            <input type="radio" name="operation" id="divide" value="divide" onclick="chooseOp()">
+            <label for="divide">/</label>
+            <br>
+            <input type="radio" name="operation" id="exponent" value="exponent" onclick="chooseOp()">
+            <label for="exponent">**</label>
+        </form>
+        <p id="operation_result">Your results will be displayed here</p>
 
         <script>
+            // Part 5
             function discount() {
                 base_value = document.getElementById("product_amount").value
                 discount_value = document.getElementById("discount_percent").value
@@ -33,6 +48,24 @@
                 }
                 document.getElementById("result").innerHTML = "Discounted amounts for base " + base_value + 
                                                                 " are " + result 
+            }
+            // Part 6
+            function chooseOp() {
+                amount = document.getElementById("product_amount").value
+                discount_val = document.getElementById("discount_percent").value
+                radio_mul = document.getElementById("multiply").checked
+                radio_div = document.getElementById("divide").checked
+                radio_exp = document.getElementById("exponent").checked
+                if(radio_mul) {
+                    document.getElementById("operation_result").innerHTML = "Amount * Discount = "
+                                                                            + amount * discount_val
+                } else if(radio_div) {
+                    document.getElementById("operation_result").innerHTML = "Amount / Discount = "
+                                                                            + amount / discount_val
+                } else if(radio_exp) {
+                    document.getElementById("operation_result").innerHTML = "Amount ** Discount = "
+                                                                            + amount ** discount_val
+                }
             }
         </script>
     </body>
