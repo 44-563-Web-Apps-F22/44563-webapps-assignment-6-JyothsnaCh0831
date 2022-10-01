@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vacation Page</title>
+    </head>
+    <body>
+        <!-- Part 7 -->
+        <h2>Jyothsna Chaparala selects a vacation</h2>
+        <br>
+        <form action="">
+            <input type="checkbox" name="air" id="byAir" value="True">
+            <label for="byAir">Travel by Air</label>
+            <br>
+            <input type="checkbox" name="domestic" id="domestic" value="True">
+            <label for="domestic">Domestic</label>
+            <br>
+            <input type="checkbox" name="resort" id="resort" value="False">
+            <label for="resort">Resort</label>
+            <br>
+            <button type="button" onclick="selectVacation()">Select a vacation</button>
+        </form>
+        <br>
+        <p id="vacation_results">Your results will be displayed here</p>
+
+        <script>
+            my_vacation = {}
+            function selectVacation() {
+                my_vacation = {}
+                result = ""
+                air = document.getElementById("byAir").checked
+                domestic = document.getElementById("domestic").checked
+                resort = document.getElementById("resort").checked
+                if(air) {
+                    result += "Travel By Air, "
+                } if(domestic) {
+                    result += "Domestic, "
+                } if(resort) {
+                    result += "Resort"
+                }
+                document.getElementById("vacation_results").innerHTML = result;
+            }
+        </script>
+    </body>
+</html>
