@@ -23,6 +23,18 @@
             <button type="button" onclick="selectVacation()">Select a vacation</button>
         </form>
         <br>
+
+        <!-- Part 8 -->
+        <form action="">
+            <label for="cityName">Enter a city</label>
+            <input type="text" name="city" value="city" id="cityName">
+            <br><br>
+            <label for="price">Enter price</label>
+            <input type="text" name="price" id="price" value="">
+            <br><br>
+            <button type="button" onclick="updateVacation()">Update the Vacation</button>
+        </form>
+
         <p id="vacation_results">Your results will be displayed here</p>
 
         <script>
@@ -34,13 +46,24 @@
                 domestic = document.getElementById("domestic").checked
                 resort = document.getElementById("resort").checked
                 if(air) {
-                    result += "Travel By Air, "
+                    result = "Travel By Air, "
                 } if(domestic) {
                     result += "Domestic, "
                 } if(resort) {
                     result += "Resort"
                 }
-                document.getElementById("vacation_results").innerHTML = result;
+                my_vacation["vacation"] = result
+                document.getElementById("vacation_results").innerHTML = my_vacation["vacation"]
+            }
+
+            function updateVacation() {
+                city = document.getElementById("cityName").value;
+                price = document.getElementById("price").value;
+                my_vacation["city"] = city
+                my_vacation["price"] = price
+
+                document.getElementById("vacation_results").innerHTML += ", City: " + my_vacation["city"]
+                                                                       + ", Price: " + my_vacation["price"]     
             }
         </script>
     </body>
