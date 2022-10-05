@@ -26,7 +26,7 @@
             <input type="text" name="guess_musician" id="guess_musician" value="">
             <br>
 
-            <button type="button" onclick="checkGuess()">Check the guess</button>
+            <button id="guessgame" type="button" onclick="checkGuess()">Check the guess</button>
         </form>
         <p id="guess_result">Your result will be displayed here</p>
         <br>
@@ -45,18 +45,25 @@
             // global variables - Part 3
             var correct = 0
             var wrong = 0
-
+            var three_wrongs = 0
             // function - Part 3
             function checkGuess() {
                 secret = document.getElementById("secret_value").value
                 guess = document.getElementById("guess_musician").value
                 result = document.getElementById("guess_result")
-                if(secret == guess) {
+                if(three_wrongs >= 3) {
+                    document.getElementById("guessgame").onclick = function gameOver() {
+                        alert("Sorry, game over.")
+                    };
+                }
+                else if(secret == guess) {
                     correct += 1
+                    three_wrongs = 0
                     alert("You got it right")
                     result.innerHTML = "Correct Guess: " + correct + " Wrong Guess: " + wrong
                 } else {
                     wrong += 1
+                    three_wrongs += 1
                     alert("Wrong Musician")
                     result.innerHTML = "Correct Guess: " + correct + " Wrong Guess: " + wrong
                 }
